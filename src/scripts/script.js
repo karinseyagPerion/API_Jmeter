@@ -1,28 +1,19 @@
-var failureMessage = document.getElementsByClassName('failureMessage');
-var assertionName = document.getElementsByClassName('name');
-var elemToDelete = [];
-var elemToDelete2 = [];
 var asExpectedValue = "As Expected";
-var resultName =  document.getElementsByClassName('resultName');
-var resultfailureMessage =  document.getElementsByClassName('resultfailureMessage');
-var assertion_name = [];
-var failure_message = [];
+var result_table = document.getElementById('result_table');
 
-
-//hideAllUl();
-checkAgainEquals();
 createResultBtn("resultName");
-createResultBtn("resultfailureMessage");
+//createResultBtn("resultfailureMessage");
+
+result_table.style.display="block";
+
 checkAgainEquals();
 
-function checkAgainEquals(){
+function checkAgainEquals(){//chech if there is values that equals with ignore case
 var expectedToBe = "Value expected to be '";
 var actualToBe = " but found '";
-
- var uls = document.getElementsByClassName("resultfailureMessage");
+var uls = document.getElementsByClassName("resultfailureMessage");
 
     for (var i = 0; i < uls.length; i++) {
-	console.log("row  "+i);
             var failureElements = uls[i].getElementsByTagName("li");
             for (var j = 0; j < failureElements.length; j++) {
 			var currentElem = failureElements[j];
@@ -30,15 +21,12 @@ var actualToBe = " but found '";
                 var text = currentElem.innerHTML;
 				if(text.substring(0,expectedToBe.length)==expectedToBe){
 				var expected =text.substring(expectedToBe.length,text.indexOf("',"));
-				var actual = text.substring(text.lastIndexOf(actualToBe)+actualToBe.length,text.lastIndexOf("'")); 
-				console.log("j  "+j);
-				console.log("expected  "+expected);
-				console.log("actual  "+actual);
-				if(expected.toLowerCase()==actual.toLowerCase()){
+				var actual = text.substring(text.lastIndexOf(actualToBe)+actualToBe.length,text.lastIndexOf("'"));  //extract the values
+				if(expected.toLowerCase()==actual.toLowerCase()){// lower case to ignore the case
 				currentElem.innerHTML=asExpectedValue;
 				currentElem.className = currentElem.className+"-["+text+"]";
 				}
-            }else{if(text==""){
+            }else{if(text==""){//if there is no text , its meem that the values are equals
 			currentElem.innerHTML=asExpectedValue;
 			}
 			
@@ -48,19 +36,14 @@ var actualToBe = " but found '";
 
 }
 
-function hideAllUl(){
-    var uls = document.getElementsByTagName("ul");
-    for(var i = 0;i<uls.length;i++){
-        uls[i].style.display= "none";
-    }
-}
+
 
 function createResultBtn(className) {
     var uls = document.getElementsByClassName(className);
 
     for (var i = 0; i < uls.length; i++) {
         var input = document.createElement("input");
-        input.value = "result";
+        input.value = "Click To View Results";
         input.type = "button";
 		 var parent1 = uls[i].parentNode;
 		  var tds1 = parent1.getElementsByTagName("td");
@@ -85,7 +68,7 @@ function createResultBtn(className) {
                 var text = failureElements[i].innerHTML;
                 results.push(text);
             }
-creteHtmlFile(testName,status,assertions_names,results);
+creteResultPage(testName,status,assertions_names,results);
         }
 		console.log("status--"+status1);
 		if(status1=="true"){
@@ -97,18 +80,14 @@ creteHtmlFile(testName,status,assertions_names,results);
     }
 }
 
-        function creteHtmlFile(testName,status,assertions_names,results){
-            var tab = document.getElementsByClassName("sortable")[0];
-            tab.style.display="none";
+function creteResultPage(testName,status,assertions_names,results){
+            result_table.style.display="none";
             var body = document.getElementsByTagName("body")[0];
-            var h1 = document.createElement("h1");
-            var h2 = document.createElement("h2");
             var table = document.createElement("table");
             table.className ='sortableR';
             table.cellPadding="2";
             table.cellSpacing="2";
             table.border="1";
-
 
             var  thead= document.createElement("thead");
             var tr = document.createElement("tr");
@@ -154,7 +133,7 @@ creteHtmlFile(testName,status,assertions_names,results);
                 if(innerText==""||innerText==asExpectedValue){
                     result_result.innerHTML=asExpectedValue;
                     status_resualt.innerHTML="true";
-					tr.style.backgroundColor="#00CC00";
+					tr.style.backgroundColor="#9acd32";
 					}else{
 					result_result.innerHTML=innerText;
                     status_resualt.innerHTML="false";
@@ -169,28 +148,40 @@ creteHtmlFile(testName,status,assertions_names,results);
             }
             table.appendChild(thead);
             table.appendChild(tbody);
-var btn1 = createBackBtn();
-var btn2 = createBackBtn();
+var btn1 = createBackBtn(result_table,table);
+var btn2 = createBackBtn(result_table,table);
 body.appendChild(btn1);
             body.appendChild(table);
 			body.appendChild(btn2);
         }
 		
-		
-		function createBackBtn(){
-		var input2 = document.createElement("input");
-		 input2.className = "Back_Btn";
-        input2.value = "Back";
-        input2.type = "button";
-        input2.onclick = function() {
-			var moshe = document.getElementsByClassName("sortableR")[0];
-			console.log(moshe);
-			var parent = moshe.parentNode;
+		function backToDefaultPage(event,result_table,table){
+		if(event.keyCode=='69'||event.keyCode=='0'){
+		var parent = table.parentNode;
+			parent.removeChild(table);
 			var btns = document.getElementsByClassName("Back_Btn");
-			for(var i=0;i<btns.length;i++){
-			parent.removeChild(btns[i]);
+			var size = btns.length;
+			for(var i=0;i<size;i++){
+			parent.removeChild(btns[0]);
 			}
-            tab.style.display="block";
-        }	
-		return input2;
+            result_table.style.display="block";
+			}
+		}
+		
+function createBackBtn(result_table,table){
+		var input = document.createElement("input");
+		 input.className = "Back_Btn";
+        input.value = "Back";
+        input.type = "button";
+        input.onclick = function(){
+		var parent = table.parentNode;
+			parent.removeChild(table);
+			var btns = document.getElementsByClassName("Back_Btn");
+			var size = btns.length;
+			for(var i=0;i<size;i++){
+			parent.removeChild(btns[0]);
+			}
+            result_table.style.display="block";
+		};
+		return input;
 		}
