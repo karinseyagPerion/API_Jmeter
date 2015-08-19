@@ -50,7 +50,7 @@
 </tr>
 </xsl:for-each>
 </table>
-<script src="script.js">
+<script src="/home/perion/script.js">
 </script>
 </body>
 </html>
