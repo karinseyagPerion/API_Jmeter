@@ -226,21 +226,31 @@ creteHtmlFile(testName,status,assertions_names,results);
             }
             table.appendChild(thead);
             table.appendChild(tbody);
-
-				var input2 = document.createElement("input");
+var btn1 = createBackBtn(tab,table);
+var btn2 = createBackBtn(tab,table);
+body.appendChild(btn1);
+            body.appendChild(table);
+			body.appendChild(btn2);
+        }
+		
+		
+		function createBackBtn(tab,table){
+		var input2 = document.createElement("input");
+		 input2.className = "Back_Btn";
         input2.value = "Back";
         input2.type = "button";
-		body.appendChild(input2);
         input2.onclick = function() {
-			var moshe = document.getElementsByClassName("sortableR")[0];
-			console.log(moshe);
-			var parent = moshe.parentNode;
-			parent.removeChild(moshe);
+			var parent = table.parentNode;
+			parent.removeChild(table);
+			var btns = document.getElementsByClassName("Back_Btn");
+			var size = btns.length;
+			for(var i=0;i<size;i++){
+			parent.removeChild(btns[0]);
+			}
             tab.style.display="block";
-			parent.removeChild(input2);		
         }	
-            body.appendChild(table);
-        }
+		return input2;
+		}
 ]]>
 </script>
 </body>

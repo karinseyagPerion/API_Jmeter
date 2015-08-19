@@ -169,18 +169,28 @@ creteHtmlFile(testName,status,assertions_names,results);
             }
             table.appendChild(thead);
             table.appendChild(tbody);
-
-				var input2 = document.createElement("input");
+var btn1 = createBackBtn();
+var btn2 = createBackBtn();
+body.appendChild(btn1);
+            body.appendChild(table);
+			body.appendChild(btn2);
+        }
+		
+		
+		function createBackBtn(){
+		var input2 = document.createElement("input");
+		 input2.className = "Back_Btn";
         input2.value = "Back";
         input2.type = "button";
-		body.appendChild(input2);
         input2.onclick = function() {
 			var moshe = document.getElementsByClassName("sortableR")[0];
 			console.log(moshe);
 			var parent = moshe.parentNode;
-			parent.removeChild(moshe);
+			var btns = document.getElementsByClassName("Back_Btn");
+			for(var i=0;i<btns.length;i++){
+			parent.removeChild(btns[i]);
+			}
             tab.style.display="block";
-			parent.removeChild(input2);		
         }	
-            body.appendChild(table);
-        }
+		return input2;
+		}
