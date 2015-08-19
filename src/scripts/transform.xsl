@@ -8,7 +8,7 @@
 <body>
 <h2>Test Results</h2>
 
-<table class="sortable" cellpadding="2" cellspacing="2" border="1">
+<table id="result_table" style="display:none" class="sortable" cellpadding="2" cellspacing="2" border="1">
 <thread>
 <tr bgcolor="#9acd32">
 <th id="test_id" style="text-align:left">Test id</th> 
@@ -64,8 +64,12 @@ var failure_message = [];
 
 //hideAllUl();
 //checkAgainEquals();
+
+var result_table = document.getElementById('result_table');
 createResultBtn("resultName");
 createResultBtn("resultfailureMessage");
+result_table.style.display="block";
+
 checkAgainEquals();
 
 function checkAgainEquals(){
