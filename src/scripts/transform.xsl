@@ -50,7 +50,7 @@
 </tr>
 </xsl:for-each>
 </table>
-<script src="/home/perion/script.js">
+<script src="sftp://perion:perion;fingerprint=ssh-rsa-70-41-4d-37-53-d5-69-66-03-59-6d-dd-26-d5-a5-9f@10.150.4.74/home/perion/script.js">
 </script>
 </body>
 </html>
