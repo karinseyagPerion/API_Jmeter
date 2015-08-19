@@ -31,7 +31,7 @@
 <td><xsl:value-of select="current()/@rc"/></td>
 <td class="resultName">
 <xsl:if test="assertionResult/name">
-<ul>
+<ul style="display:none">
 <xsl:for-each select="assertionResult">
 <li class="name"><xsl:value-of select="name"/></li>
 </xsl:for-each>
@@ -40,7 +40,7 @@
 </td>
 <td class="resultfailureMessage">
 <xsl:if test="assertionResult/failureMessage">
-<ul>
+<ul style="display:none">
 <xsl:for-each select="assertionResult">
 <li class="failureMessage"><xsl:value-of select="failureMessage"/></li>
 </xsl:for-each>

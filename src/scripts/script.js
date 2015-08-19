@@ -1,16 +1,52 @@
-hideAllUl();
-createResultBtn("resultName");
-//createResultBtn("resultfailureMessage");
 var failureMessage = document.getElementsByClassName('failureMessage');
 var assertionName = document.getElementsByClassName('name');
 var elemToDelete = [];
 var elemToDelete2 = [];
-
+var asExpectedValue = "As Expected";
 var resultName =  document.getElementsByClassName('resultName');
 var resultfailureMessage =  document.getElementsByClassName('resultfailureMessage');
 var assertion_name = [];
 var failure_message = [];
 
+
+//hideAllUl();
+checkAgainEquals();
+createResultBtn("resultName");
+createResultBtn("resultfailureMessage");
+checkAgainEquals();
+
+function checkAgainEquals(){
+var expectedToBe = "Value expected to be '";
+var actualToBe = " but found '";
+
+ var uls = document.getElementsByClassName("resultfailureMessage");
+
+    for (var i = 0; i < uls.length; i++) {
+	console.log("row  "+i);
+            var failureElements = uls[i].getElementsByTagName("li");
+            for (var j = 0; j < failureElements.length; j++) {
+			var currentElem = failureElements[j];
+			
+                var text = currentElem.innerHTML;
+				if(text.substring(0,expectedToBe.length)==expectedToBe){
+				var expected =text.substring(expectedToBe.length,text.indexOf("',"));
+				var actual = text.substring(text.lastIndexOf(actualToBe)+actualToBe.length,text.lastIndexOf("'")); 
+				console.log("j  "+j);
+				console.log("expected  "+expected);
+				console.log("actual  "+actual);
+				if(expected.toLowerCase()==actual.toLowerCase()){
+				currentElem.innerHTML=asExpectedValue;
+				currentElem.className = currentElem.className+"-["+text+"]";
+				}
+            }else{if(text==""){
+			currentElem.innerHTML=asExpectedValue;
+			}
+			
+			}
+			}
+}
+
+}
 
 function hideAllUl(){
     var uls = document.getElementsByTagName("ul");
@@ -115,15 +151,15 @@ creteHtmlFile(testName,status,assertions_names,results);
                 result_result.id = "result_result"+(i+1);
 				var innerText = results[i];
 				console.log("innerText-"+innerText);
-                if(innerText!=""){
+                if(innerText==""||innerText==asExpectedValue){
+                    result_result.innerHTML=asExpectedValue;
+                    status_resualt.innerHTML="true";
+					tr.style.backgroundColor="#00CC00";
+					}else{
 					result_result.innerHTML=innerText;
                     status_resualt.innerHTML="false";
 					tr.style.backgroundColor="#FF0000";
-                }else{
-                     result_result.innerHTML="As Expected";
-                    status_resualt.innerHTML="true";
-					tr.style.backgroundColor="#00CC00";
-                }
+					}
                 assertion_name_result.innerHTML=assertions_names[i];
 				tr.appendChild(assertion_id_resualt);
                 tr.appendChild(status_resualt);
