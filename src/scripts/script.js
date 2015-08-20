@@ -116,7 +116,7 @@ function creteResultPage(testName,status,assertions_names,results){
             thead.appendChild(tr);
             var tbody = document.createElement("tbody");
 
-            for(var i = 0;i<results.length;i++){
+    for(var i = 0;i<results.length;i++){
                 var tr = document.createElement("tr");
 				  var assertion_id_resualt = document.createElement("td");
                 assertion_id_resualt.id = "assertion_id_"+(i+1);
