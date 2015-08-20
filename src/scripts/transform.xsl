@@ -51,7 +51,7 @@
 </tr>
 </xsl:for-each>
 </table>
-<script type="text/javascript" src="../src/scripts/script.js">
+<script type="text/javascript" src="../../ws/src/scripts/script.js">
 
 </script>
 </body>
