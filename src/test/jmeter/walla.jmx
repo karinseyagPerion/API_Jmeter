@@ -76,7 +76,7 @@
                 <threadCounts>true</threadCounts>
               </value>
             </objProp>
-            <stringProp name="filename"></stringProp>
+            <stringProp name="filename">C:\jmeter-reports\searchApiResult.xml</stringProp>
           </ResultCollector>
           <hashTree/>
         </hashTree>
