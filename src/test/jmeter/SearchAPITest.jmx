@@ -1141,7 +1141,7 @@
             <threadCounts>true</threadCounts>
           </value>
         </objProp>
-        <stringProp name="filename">C:\jmeter-reports\searchApiResult.xml</stringProp>
+        <stringProp name="filename">C:\jmeter-reports\Result.xml</stringProp>
       </ResultCollector>
       <hashTree/>
       <kg.apc.jmeter.threads.SteppingThreadGroup guiclass="kg.apc.jmeter.threads.SteppingThreadGroupGui" testclass="kg.apc.jmeter.threads.SteppingThreadGroup" testname="jp@gc - Stepping Thread Group" enabled="false">
