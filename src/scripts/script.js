@@ -1,9 +1,10 @@
 var asExpectedValue = "As Expected";
 var result_table = document.getElementById('result_table');
 
-createResultBtn("resultName");
-result_table.style.display="block";
+createResultBtn();
 checkAgainEquals();
+result_table.style.display = "block";
+
 
 function checkAgainEquals(){//chech if there is values that equals with ignore case
 var expectedToBe = "Value expected to be '";
@@ -33,8 +34,8 @@ var uls = document.getElementsByClassName("resultfailureMessage");
 
 }
 
-function createResultBtn(className) {
-    var uls = document.getElementsByClassName(className);
+function createResultBtn() {
+    var uls = document.getElementsByClassName("resultName");
 
     for (var i = 0; i < uls.length; i++) {
         var input = document.createElement("input");
