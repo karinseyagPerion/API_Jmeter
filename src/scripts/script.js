@@ -2,10 +2,7 @@ var asExpectedValue = "As Expected";
 var result_table = document.getElementById('result_table');
 
 createResultBtn("resultName");
-//createResultBtn("resultfailureMessage");
-
 result_table.style.display="block";
-
 checkAgainEquals();
 
 function checkAgainEquals(){//chech if there is values that equals with ignore case
@@ -35,8 +32,6 @@ var uls = document.getElementsByClassName("resultfailureMessage");
 }
 
 }
-
-
 
 function createResultBtn(className) {
     var uls = document.getElementsByClassName(className);
