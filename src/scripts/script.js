@@ -35,7 +35,7 @@ var uls = document.getElementsByClassName("resultfailureMessage");
 }
 
 function createResultBtn() {
-    var uls = document.getElementsByClassName("resultName");
+    var uls = document.getElementsByClassName(className);
 
     for (var i = 0; i < uls.length; i++) {
         var input = document.createElement("input");
