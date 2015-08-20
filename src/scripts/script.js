@@ -133,11 +133,11 @@ function creteResultPage(testName,status,assertions_names,results){
                 if(innerText==""||innerText==asExpectedValue){
                     result_result.innerHTML=asExpectedValue;
                     status_resualt.innerHTML="true";
-					tr.style.backgroundColor="#9acd32";
+					status_resualt.style.backgroundColor="#9acd32";
 					}else{
 					result_result.innerHTML=innerText;
                     status_resualt.innerHTML="false";
-					tr.style.backgroundColor="#FF0000";
+					status_resualt.style.backgroundColor="#FF0000";
 					}
                 assertion_name_result.innerHTML=assertions_names[i];
 				tr.appendChild(assertion_id_resualt);
