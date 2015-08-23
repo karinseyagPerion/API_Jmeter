@@ -3,6 +3,7 @@ var result_table = document.getElementById('result_table');
 
 createResultBtn();
 checkAgainEquals();
+/*
 function createAvgResultBtn(numOfTests,numberOfFailedTests,numberOPassedTests){
 var numberOfFailedTestsInPercents = numberOfFailedTests*100/numOfTests;
 var numberOPassedTestsInPercents = 100- numberOfFailedTestsInPercents;
@@ -27,6 +28,7 @@ status_resualt.style.backgroundColor="#9acd32";
 					status_resualt.style.backgroundColor="#FF0000";
 
 };
+*/
 result_table.style.display = "block";
 
 
