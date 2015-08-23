@@ -3,6 +3,30 @@ var result_table = document.getElementById('result_table');
 
 createResultBtn();
 checkAgainEquals();
+function createAvgResultBtn(numOfTests,numberOfFailedTests,numberOPassedTests){
+var numberOfFailedTestsInPercents = numberOfFailedTests*100/numOfTests;
+var numberOPassedTestsInPercents = 100- numberOfFailedTestsInPercents;
+var newButton = document.createElement('div');
+newButton.className='result_button';
+newButton.style.width='200';
+newButton.style.highet='50';
+var newButton1 = document.createElement('div');
+newButton.style.width=numberOfFailedTestsInPercents*2;
+newButton.style.highet='50';
+newButton.style.backgroundColor='#9acd32'
+var newButton2 = document.createElement('div');
+newButton.className='result_button';
+newButton.style.width=numberOPassedTestsInPercents*2;
+newButton.style.highet='50';
+newButton.appendChild(newButton1);
+newButton.appendChild(newButton2);
+status_resualt.style.backgroundColor="#9acd32";
+					}else{
+					result_result.innerHTML=innerText;
+                    status_resualt.innerHTML="false";
+					status_resualt.style.backgroundColor="#FF0000";
+
+};
 result_table.style.display = "block";
 
 
