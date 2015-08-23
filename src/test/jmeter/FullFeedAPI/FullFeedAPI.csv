@@ -26,7 +26,7 @@ TC_number,domain,requsetType,q_val,ip,ProviderId,jsonType,jsonCallback,ID,Sugges
 25,suggest-qa.perion.local/suggestionfeed,suggestion,home,1.55.255.255,8,json,callback,CT3298816,8,home,,Yahoo,VN,
 26,suggest-qa.perion.local/suggestionfeed,suggestion,sdfgsdfg,5.132.191.255,8,json,callback,GB1000220,8,sdfgsdfg,,Yahoo,AT,invalid string
 27,suggest-qa.perion.local/suggestionfeed,suggestion,,5.132.191.255,8,json,callback,GB1000220,8,,,Yahoo,AT,empty q
-28,suggest-qa.perion.local/suggestionfeed,suggestion,!@@!$@)$,5.132.191.255,8,json,callback,GB1000220,8,!@@!$@)$,,Yahoo,AT,special characters
+28,suggest-qa.perion.local/suggestionfeed,suggestion,!@@!$@)$@,5.132.191.255,8,json,callback,GB1000220,8,!@@!$@)$@,,Yahoo,AT,special characters
 29,suggest-qa.perion.local/suggestionfeed,suggestion,home,5.132.191.255,180,json,callback,GB10002,180,home,,Trovi,AT,invalid ID
 30,suggest-qa.perion.local/suggestionfeed,suggestion,sdfgsdfghgfhfhffghfghfghfghfghfghfghfghgfh,5.132.191.255,8,json,callback,GB1000220,8,sdfgsdfghgfhfhffghfghfghfghfghfghfghfghgfh,,Yahoo,AT,invalid string
 31,suggest-qa.perion.local/suggestionfeed,suggestion,sdfgsdfghgfh%20fhffghfghf%20ghfghfghfg%20hfghf%20ghgfh,5.132.191.255,8,json,callback,GB1000220,8,sdfgsdfghgfh fhffghfghf ghfghfghfg hfghf ghgfh,,Yahoo,AT,invalid string with space 
