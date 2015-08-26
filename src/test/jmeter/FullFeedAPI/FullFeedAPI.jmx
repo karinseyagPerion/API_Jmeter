@@ -136,6 +136,11 @@
             <boolProp name="DNSCacheManager.isCustomResolver">false</boolProp>
           </DNSCacheManager>
           <hashTree/>
+          <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
+            <boolProp name="clearEachIteration">true</boolProp>
+            <boolProp name="useExpires">false</boolProp>
+          </CacheManager>
+          <hashTree/>
         </hashTree>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
@@ -208,6 +213,11 @@
           <boolProp name="DNSCacheManager.clearEachIteration">true</boolProp>
           <boolProp name="DNSCacheManager.isCustomResolver">false</boolProp>
         </DNSCacheManager>
+        <hashTree/>
+        <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
+          <boolProp name="clearEachIteration">true</boolProp>
+          <boolProp name="useExpires">false</boolProp>
+        </CacheManager>
         <hashTree/>
       </hashTree>
     </hashTree>
