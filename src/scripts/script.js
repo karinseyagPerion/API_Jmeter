@@ -24,7 +24,6 @@ function checkAgainEquals() {//chech if there is values that equals with ignore 
                 if (expected.toLowerCase() == actual.toLowerCase()) {// lower case to ignore the case
                     currentElem.innerHTML = asExpectedValue;
                     currentElem.className = currentElem.className + "-[" + text + "]";
-                    count++;
                 }
             } else {
                 if (text == "") {//if there is no text , its meem that the values are equals
