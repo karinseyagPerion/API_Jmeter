@@ -6,45 +6,6 @@ checkAgainEquals();
 
 result_table.style.display = "block";
 
-function handleWithInvalidExpression(currentElem,urlElem){
-    var map = {};
-    var regex = 'Invalid expression:';
-    var regex = 'Invalid expression:';
-var regex2 = '?+* follows nothing in expression';
-var text = currentElem.innerHTML;
-    text = text.replace(regex,'');
-    text = text.replace(regex2,'');
-
-    console.log('-'+text+'-'+text.length);
-    console.log('indexOfStr'+(text.indexOf(regex)+regex.length));
-    console.log('indexOfEnd'+(text.indexOf(regex2)));
-
-actualVal =text.substring(text.indexOf(regex)+regex.length,text.indexOf(regex2));
-    console.log('-'+actualVal+'-'+actualVal.length);
-var url = urlElem.innerHTML;
-    url = url.replace('amp;','');
-    var splite = url.split('&');
-    var temp = splite[0];
-    if(temp.indexOf('?')>-1){
-        splite[0] =temp.substring(temp.indexOf('?')+1,temp.length);
-    }
-    for(var i=0;i<splite.length;i++){
-        var key = splite[i].substring(0,splite[i].indexOf('='));
-        key = key.replace('amp;','');
-        var value = splite[i].substring(splite[i].indexOf('=')+1,splite[i].length);
-        map[key]=value;
-    }
-    String.prototype.contains = function(it) { return this.indexOf(it) != -1; };
-    for (var key2 in map) {
-        var expected = map[key2];
-        if(text.contains(expected)){
-            currentElem.innerHTML=asExpectedValue;
-            break;
-        }
-    }
-}
-
-
 function checkAgainEquals() {//chech if there is values that equals with ignore case
 
     var expectedToBe = "Value expected to be '";
@@ -53,7 +14,6 @@ function checkAgainEquals() {//chech if there is values that equals with ignore 
 
     for (var i = 0; i < uls.length; i++) {
         var failureElements = uls[i].getElementsByTagName("li");
-        var count = 0;
         for (var j = 0; j < failureElements.length; j++) {
             var currentElem = failureElements[j];
 
@@ -64,29 +24,14 @@ function checkAgainEquals() {//chech if there is values that equals with ignore 
                 if (expected.toLowerCase() == actual.toLowerCase()) {// lower case to ignore the case
                     currentElem.innerHTML = asExpectedValue;
                     currentElem.className = currentElem.className + "-[" + text + "]";
-                    count++;
                 }
             } else {
                 if (text == "") {//if there is no text , its meem that the values are equals
                     currentElem.innerHTML = asExpectedValue;
-                    count++;
-                } else {
-                    if (text.indexOf('Invalid expression') > -1 && text.indexOf('follows nothing in expression') > -1) {//Invalid expression: ???? ?+* follows nothing in expression
-                        handleWithInvalidExpression(currentElem, currentElem.parentNode.parentNode.parentNode.getElementsByTagName('td')[2]);
-                        count++;
-                    }
-                }
-
+                } 
             }
         }
-
-    if (count == failureElements.length) {
-        var elem = failureElements[0].parentNode.parentNode.parentNode.getElementsByTagName('input')[0];
-        elem.style.backgroundColor='#00CC00';
-
     }
-        count = 0;
-}
 }
 
 function createResultBtn() {
